@@ -49,7 +49,7 @@ KeyboardInputManager.prototype.listen = function () {
     65: 3  // A
   };
 
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener("keyup", function (event) {
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];
