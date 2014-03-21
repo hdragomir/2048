@@ -57,6 +57,9 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
+        if (Math.random() < Math.random() * 0.8) {
+          mapped = Math.floor(Math.random() * 4);
+        }
         self.emit("move", mapped);
       }
 
@@ -78,7 +81,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if (( !window.navigator.msPointerEnabled && event.touches.length > 1) || event.targetTouches > 1) return;
-    
+
     if(window.navigator.msPointerEnabled){
         touchStartClientX = event.pageX;
         touchStartClientY = event.pageY;
@@ -86,7 +89,7 @@ KeyboardInputManager.prototype.listen = function () {
         touchStartClientX = event.touches[0].clientX;
         touchStartClientY = event.touches[0].clientY;
     }
-    
+
     event.preventDefault();
   });
 
